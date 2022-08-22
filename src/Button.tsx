@@ -31,8 +31,8 @@ const BaseButton = styled.button<ButtonProps>`
 
 	& > .material_icon {
 		margin-right: 8px;
-		width: ${(props) => props.theme.shapes.iconSize};
-		height: ${(props) => props.theme.shapes.iconSize};
+		width: ${(props) => props.theme.componentStyles.button.iconSize};
+		height: ${(props) => props.theme.componentStyles.button.iconSize};
 		transform: translateY(0px);
 	}
 `
@@ -52,8 +52,8 @@ export const FilledButton = styled(BaseButton)`
 		background: ${(props) =>
 			overlapTwoColors(
 				props.theme.mode === "light"
-					? "rgba(255, 255, 255, 0.08)"
-					: "rgba(208, 188, 255, 0.08)",
+					? `rgba(255, 255, 255, ${props.theme.componentStates.hoverOpacity})`
+					: `rgba(208, 188, 255, ${props.theme.componentStates.hoverOpacity})`,
 				hexFromArgb(props.theme.schemes[props.theme.mode].primary)
 			)};
 	}
@@ -63,8 +63,8 @@ export const FilledButton = styled(BaseButton)`
 		background: ${(props) =>
 			overlapTwoColors(
 				props.theme.mode === "light"
-					? "rgba(255, 255, 255, 0.12)"
-					: "rgba(208, 188, 255, 0.12)",
+					? `rgba(255, 255, 255, ${props.theme.componentStates.pressedOpacity})`
+					: `rgba(208, 188, 255, ${props.theme.componentStates.pressedOpacity})`,
 				hexFromArgb(props.theme.schemes[props.theme.mode].primary)
 			)};
 	}
@@ -72,8 +72,8 @@ export const FilledButton = styled(BaseButton)`
 	&:disabled {
 		background: ${(props) =>
 			props.theme.mode === "light"
-				? "rgba(31, 31, 31, 0.12)"
-				: "rgba(227, 227, 227, 0.12)"};
+				? `rgba(31, 31, 31, ${props.theme.componentStates.pressedOpacity})`
+				: `rgba(227, 227, 227, ${props.theme.componentStates.pressedOpacity})`};
 	}
 `
 
@@ -89,7 +89,7 @@ export const TextButton = styled(BaseButton)`
 			const [r, g, b] = rgbFromArgb(
 				props.theme.schemes[props.theme.mode].primary
 			)
-			return `rgba(${r}, ${g}, ${b}, 0.08)`
+			return `rgba(${r}, ${g}, ${b}, ${props.theme.componentStates.hoverOpacity})`
 		}};
 	}
 
@@ -98,7 +98,7 @@ export const TextButton = styled(BaseButton)`
 			const [r, g, b] = rgbFromArgb(
 				props.theme.schemes[props.theme.mode].primary
 			)
-			return `rgba(${r}, ${g}, ${b}, 0.12)`
+			return `rgba(${r}, ${g}, ${b}, ${props.theme.componentStates.pressedOpacity})`
 		}};
 	}
 `
@@ -116,8 +116,8 @@ export const OutlinedButton = styled(TextButton)`
 	&:disabled {
 		border-color: ${(props) =>
 			props.theme.mode === "light"
-				? "rgba(31, 31, 31, 0.12)"
-				: "rgba(227, 227, 227, 0.12)"};
+				? `rgba(31, 31, 31, ${props.theme.componentStates.pressedOpacity})`
+				: `rgba(227, 227, 227, ${props.theme.componentStates.pressedOpacity})`};
 	}
 `
 
@@ -143,7 +143,7 @@ export const ElevatedButton = styled(BaseButton)`
 				props.theme.schemes[props.theme.mode].primary
 			)
 			return overlapTwoColors(
-				`rgba(${r}, ${g}, ${b}, ${props.theme.shapes.elevation[2].alpha})`,
+				`rgba(${r}, ${g}, ${b}, ${props.theme.componentStates.hoverOpacity})`,
 				hexFromArgb(props.theme.schemes[props.theme.mode].surface)
 			)
 		}};
@@ -157,7 +157,7 @@ export const ElevatedButton = styled(BaseButton)`
 				props.theme.schemes[props.theme.mode].primary
 			)
 			return overlapTwoColors(
-				`rgba(${r}, ${g}, ${b}, ${props.theme.shapes.elevation[4].alpha})`,
+				`rgba(${r}, ${g}, ${b}, ${props.theme.componentStates.pressedOpacity})`,
 				hexFromArgb(props.theme.schemes[props.theme.mode].surface)
 			)
 		}};
@@ -167,8 +167,8 @@ export const ElevatedButton = styled(BaseButton)`
 		box-shadow: none;
 		background: ${(props) =>
 			props.theme.mode === "light"
-				? "rgba(31, 31, 31, 0.12)"
-				: "rgba(227, 227, 227, 0.12)"};
+				? `rgba(31, 31, 31, ${props.theme.componentStates.pressedOpacity})`
+				: `rgba(227, 227, 227, ${props.theme.componentStates.pressedOpacity})`};
 	}
 `
 
@@ -191,7 +191,7 @@ export const TonalButton = styled(BaseButton)`
 				props.theme.schemes[props.theme.mode].primary
 			)
 			return overlapTwoColors(
-				`rgba(${r}, ${g}, ${b}, ${props.theme.shapes.elevation[2].alpha})`,
+				`rgba(${r}, ${g}, ${b}, ${props.theme.componentStates.hoverOpacity})`,
 				hexFromArgb(
 					props.theme.mode === "light"
 						? props.theme.schemes.dark.onSecondaryContainer
@@ -208,7 +208,7 @@ export const TonalButton = styled(BaseButton)`
 				props.theme.schemes[props.theme.mode].primary
 			)
 			return overlapTwoColors(
-				`rgba(${r}, ${g}, ${b}, ${props.theme.shapes.elevation[4].alpha})`,
+				`rgba(${r}, ${g}, ${b}, ${props.theme.componentStates.pressedOpacity})`,
 				hexFromArgb(
 					props.theme.mode === "light"
 						? props.theme.schemes.dark.onSecondaryContainer
@@ -222,7 +222,7 @@ export const TonalButton = styled(BaseButton)`
 		box-shadow: none;
 		background: ${(props) =>
 			props.theme.mode === "light"
-				? "rgba(31, 31, 31, 0.12)"
-				: "rgba(227, 227, 227, 0.12)"};
+				? `rgba(31, 31, 31, ${props.theme.componentStates.pressedOpacity})`
+				: `rgba(227, 227, 227, ${props.theme.componentStates.pressedOpacity})`};
 	}
 `

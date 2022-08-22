@@ -158,7 +158,17 @@ export const defaultTheme: Theme = {
 		radius: {
 			full: "9999px",
 		},
-		iconSize: pxToRem(18),
+	},
+	componentStyles: {
+		button: {
+			iconSize: pxToRem(18),
+		},
+	},
+	componentStates: {
+		hoverOpacity: "0.08",
+		focusOpacity: "0.12",
+		pressedOpacity: "0.12",
+		draggedOpacity: "0.16",
 	},
 }
 
@@ -232,7 +242,7 @@ declare module "@emotion/react" {
 		}
 		/**
 		 * The color scheme to use.
-		 * @defaultValue "light"
+		 * @default "light"
 		 */
 		mode: "light" | "dark"
 		/**
@@ -254,14 +264,24 @@ declare module "@emotion/react" {
 			 */
 			radius: {
 				/**
-				 * @defaultValue "9999px"
+				 * @default "9999px"
 				 */
 				full: string
 			}
-			/**
-			 * How big an icon in a button should be.
-			 */
-			iconSize: string
+		}
+		componentStyles: {
+			button: {
+				/**
+				 * How big an icon in a button should be.
+				 */
+				iconSize: string
+			}
+		}
+		componentStates: {
+			hoverOpacity: string
+			focusOpacity: string
+			pressedOpacity: string
+			draggedOpacity: string
 		}
 	}
 }

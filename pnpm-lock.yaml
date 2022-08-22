@@ -30,6 +30,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-use: ^17.4.0
+  react-use-ripple: ^1.5.2
   require-from-string: ^2.0.2
   rollup: ^2.78.1
   rollup-plugin-visualizer: ^5.7.1
@@ -40,17 +41,18 @@ specifiers:
   webpack: ^5.74.0
 
 dependencies:
-  '@emotion/styled': 11.10.0_5sec57kzpgkzooe4crua5kfcly
   '@material/material-color-utilities': 0.2.0
   emotion-normalize: 11.0.1_g566eayvhbit5eqxocdac5mhdm
   ramda: 0.28.0
   react-use: 17.4.0_biqbaboplfbrettd7655fr4n2y
+  react-use-ripple: 1.5.2_react@18.2.0
 
 devDependencies:
   '@babel/core': 7.18.10
   '@babel/preset-react': 7.18.6_@babel+core@7.18.10
   '@emotion/babel-plugin': 11.10.0_@babel+core@7.18.10
   '@emotion/react': 11.10.0_msmmgljd7hl2w2irtggflhmema
+  '@emotion/styled': 11.10.0_5sec57kzpgkzooe4crua5kfcly
   '@storybook/addon-a11y': 6.5.10_biqbaboplfbrettd7655fr4n2y
   '@storybook/addon-actions': 6.5.10_biqbaboplfbrettd7655fr4n2y
   '@storybook/addon-backgrounds': 6.5.10_biqbaboplfbrettd7655fr4n2y
@@ -1675,7 +1677,7 @@ packages:
     resolution: {integrity: sha512-3aDpDprjM0AwaxGE09bOPkNxHpBd+kA6jty3RnaEXdweX1DF1U3VQpPYb0g1IStAuK7SVQ1cy+bNBBKp4W3Fjg==}
     dependencies:
       '@emotion/memoize': 0.8.0
-    dev: false
+    dev: true
 
   /@emotion/memoize/0.8.0:
     resolution: {integrity: sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==}
@@ -1737,7 +1739,7 @@ packages:
       '@emotion/utils': 1.2.0
       '@types/react': 18.0.17
       react: 18.2.0
-    dev: false
+    dev: true
 
   /@emotion/unitless/0.8.0:
     resolution: {integrity: sha512-VINS5vEYAscRl2ZUDiT3uMPlrFQupiKgHz5AA4bCH1miKBg4qtwkim1qPmJj/4WG6TreYMY111rEFsjupcOKHw==}
@@ -4792,7 +4794,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1_bluebird@3.7.2
+      promise-inflight: 1.0.1
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -9394,17 +9396,6 @@ packages:
         optional: true
     dev: true
 
-  /promise-inflight/1.0.1_bluebird@3.7.2:
-    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
-    peerDependencies:
-      bluebird: '*'
-    peerDependenciesMeta:
-      bluebird:
-        optional: true
-    dependencies:
-      bluebird: 3.7.2
-    dev: true
-
   /promise.allsettled/1.0.5:
     resolution: {integrity: sha512-tVDqeZPoBC0SlzJHzWGZ2NKAguVq2oiYj7gbggbiTvH2itHohijTp7njOUA0aQ/nl+0lr/r6egmhoYu63UZ/pQ==}
     engines: {node: '>= 0.4'}
@@ -9694,6 +9685,15 @@ packages:
     dependencies:
       react: 18.2.0
       tslib: 2.4.0
+    dev: false
+
+  /react-use-ripple/1.5.2_react@18.2.0:
+    resolution: {integrity: sha512-pK7PLEaEGJ4xCM5acxW+ua7ba0lqxbhNzBHzEw+MoD0yVFT3r8SkfkG6aSpiEm4iLZO9HOeSnUz+1k7YVuYX5w==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16.8.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-use/17.4.0_biqbaboplfbrettd7655fr4n2y:
