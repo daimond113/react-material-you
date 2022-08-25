@@ -62,7 +62,7 @@ const InputWrapper = styled.label<{
 	letter-spacing: ${(props) => props.theme.typescale.body.large.tracking};
 	font-weight: ${(props) => props.theme.typescale.body.large.weight};
 
-	--label-padding-x: 0;
+	--label-padding-x: 3.5px;
 
 	.material_leading_icon ~ span {
 		--label-padding-x: ${24 + 16}px;
@@ -223,6 +223,7 @@ export function FilledTextInput({
 			trailingIcon={!!props.trailingIcon}
 			error={error}
 			css={(theme) => css`
+				cursor: ${style.disabled ? "default" : "text"};
 				border: none;
 				border-top-left-radius: 4px;
 				border-top-right-radius: 4px;
@@ -321,6 +322,7 @@ export function OutlinedTextInput({
 		<InputWrapper
 			error={error}
 			css={(theme) => css`
+				cursor: ${style.disabled ? "default" : "text"};
 				opacity: ${style.opacity};
 
 				${props.disabled ? "" : "&:hover,"}
@@ -331,7 +333,7 @@ export function OutlinedTextInput({
 				--wrapper-items: center;
 
 				span {
-					--label-padding-x: 0px !important;
+					--label-padding-x: 3.5px !important;
 				}
 			`}
 			ref={containerRef}
@@ -390,6 +392,7 @@ export function OutlinedTextInput({
 						overflow: hidden;
 						width: auto;
 						max-width: ${isExpanded ? "100%" : "0"};
+						margin-left: 3.5px;
 					`}
 				>
 					<span
