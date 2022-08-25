@@ -16,7 +16,7 @@ export default {
 	title: "Button",
 } as ComponentMeta<Button>
 
-const Template: ComponentStory<Button> = (args) => (
+export const WithoutIcon: ComponentStory<Button> = (args) => (
 	<div
 		style={{
 			display: "flex",
@@ -38,22 +38,50 @@ const Template: ComponentStory<Button> = (args) => (
 	</div>
 )
 
-export const WithoutIcon: ComponentStory<Button> = Template.bind({})
-
 WithoutIcon.args = {
 	children: "Button",
 	disabled: false,
 }
 
-export const WithIcon: ComponentStory<Button> = Template.bind({})
+export const WithIcon: ComponentStory<Button> = (args) => (
+	<div
+		style={{
+			display: "flex",
+			flexDirection: "column",
+			gap: "0.8rem",
+		}}
+	>
+		{[
+			<FilledButton {...args}>
+				<Icon className="material_icon material-symbols-outlined">check</Icon>
+				{args.children} Filled
+			</FilledButton>,
+			<OutlinedButton {...args}>
+				<Icon className="material_icon material-symbols-outlined">check</Icon>
+				{args.children} Outlined
+			</OutlinedButton>,
+			<TextButton {...args}>
+				<Icon className="material_icon material-symbols-outlined">check</Icon>
+				{args.children} Text
+			</TextButton>,
+			<ElevatedButton {...args}>
+				<Icon className="material_icon material-symbols-outlined">check</Icon>
+				{args.children} Elevated
+			</ElevatedButton>,
+			<TonalButton {...args}>
+				<Icon className="material_icon material-symbols-outlined">check</Icon>
+				{args.children} Tonal
+			</TonalButton>,
+		].map((Btn, index) => (
+			<div key={index} style={{ width: "max-width" }}>
+				{Btn}
+			</div>
+		))}
+	</div>
+)
 
 WithIcon.args = {
-	children: (
-		<>
-			<Icon className="material_icon material-symbols-outlined">check</Icon>
-			Button With Icon
-		</>
-	),
+	children: "Button with icon",
 	disabled: false,
 	icon: true,
 }

@@ -33,7 +33,6 @@ const BaseButton = styled.button<ButtonProps>`
 		margin-right: 8px;
 		width: ${(props) => props.theme.componentStyles.button.iconSize};
 		height: ${(props) => props.theme.componentStyles.button.iconSize};
-		transform: translateY(0px);
 	}
 `
 

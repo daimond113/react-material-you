@@ -5,6 +5,7 @@ export const Icon = styled.span`
 	align-items: center;
 	justify-content: center;
 	vertical-align: middle;
+	text-align: center;
 `
 
 Icon.defaultProps = {

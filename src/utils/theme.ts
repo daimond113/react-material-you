@@ -163,6 +163,9 @@ export const defaultTheme: Theme = {
 		button: {
 			iconSize: pxToRem(18),
 		},
+		textInput: {
+			iconSize: pxToRem(20),
+		},
 	},
 	componentStates: {
 		hoverOpacity: "0.08",
@@ -272,7 +275,13 @@ declare module "@emotion/react" {
 		componentStyles: {
 			button: {
 				/**
-				 * How big an icon in a button should be.
+				 * How big an icon should be.
+				 */
+				iconSize: string
+			}
+			textInput: {
+				/**
+				 * How big an icon should be.
 				 */
 				iconSize: string
 			}
