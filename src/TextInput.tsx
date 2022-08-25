@@ -9,7 +9,6 @@ import {
 	useState,
 } from "react"
 import { hexFromArgb, overlapTwoColors, rgbFromArgb } from "./utils/colors"
-import { useMutationObserver } from "./utils/hooks"
 
 interface BaseTextInputProps
 	extends DetailedHTMLProps<
@@ -188,34 +187,6 @@ export function FilledTextInput({
 	...props
 }: BaseTextInputProps) {
 	const containerRef = useRef<HTMLLabelElement>(null)
-	const [style, setStyle] = useState({
-		opacity: "1",
-		disabled: props.disabled ?? false,
-	})
-	useMutationObserver(
-		containerRef,
-		() => {
-			if (!containerRef.current) return
-
-			const inputNode = Array.from(containerRef.current.childNodes).find(
-				(node) => node.nodeName === "INPUT"
-			) as HTMLInputElement | undefined
-
-			if (!inputNode) return
-
-			setStyle({
-				disabled: inputNode.disabled,
-				opacity: inputNode.disabled ? "0.38" : "1",
-			})
-		},
-		{
-			childList: true,
-			attributeFilter: ["disabled"],
-			attributes: true,
-			subtree: true,
-			characterData: false,
-		}
-	)
 
 	return (
 		<InputWrapper
@@ -223,7 +194,8 @@ export function FilledTextInput({
 			trailingIcon={!!props.trailingIcon}
 			error={error}
 			css={(theme) => css`
-				cursor: ${style.disabled ? "default" : "text"};
+				cursor: ${props.disabled ? "default" : "text"};
+				opacity: ${props.disabled ? "0.38" : "1"};
 				border: none;
 				border-top-left-radius: 4px;
 				border-top-right-radius: 4px;
@@ -241,9 +213,7 @@ export function FilledTextInput({
 						)};
 				}
 
-				opacity: ${style.opacity};
-
-				${!style.disabled
+				${!props.disabled
 					? css`
 							&:hover {
 								background: ${(() => {
@@ -274,38 +244,7 @@ export function OutlinedTextInput({
 	...props
 }: BaseTextInputProps) {
 	const containerRef = useRef<HTMLLabelElement>(null)
-	const [style, setStyle] = useState({
-		opacity: "1",
-		disabled: props.disabled ?? false,
-	})
 	const [isExpanded, setIsExpanded] = useState(false)
-
-	useMutationObserver(
-		containerRef,
-		() => {
-			if (!containerRef.current) return
-
-			const children = Array.from(containerRef.current.childNodes)
-
-			const inputNode = children.find((node) => node.nodeName === "INPUT") as
-				| HTMLInputElement
-				| undefined
-
-			if (!inputNode) return
-
-			setStyle({
-				disabled: inputNode.disabled,
-				opacity: inputNode.disabled ? "0.38" : "1",
-			})
-		},
-		{
-			childList: true,
-			attributeFilter: ["disabled"],
-			attributes: true,
-			subtree: true,
-			characterData: false,
-		}
-	)
 
 	useEffect(() => {
 		if (!containerRef.current) return
@@ -322,8 +261,8 @@ export function OutlinedTextInput({
 		<InputWrapper
 			error={error}
 			css={(theme) => css`
-				cursor: ${style.disabled ? "default" : "text"};
-				opacity: ${style.opacity};
+				cursor: ${props.disabled ? "default" : "text"};
+				opacity: ${props.disabled ? "0.38" : "1"};
 
 				${props.disabled ? "" : "&:hover,"}
 				&:focus-within {
