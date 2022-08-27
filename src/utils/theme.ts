@@ -172,6 +172,7 @@ export const defaultTheme: Theme = {
 		focusOpacity: "0.12",
 		pressedOpacity: "0.12",
 		draggedOpacity: "0.16",
+		disabledOpacity: "0.38",
 	},
 }
 
@@ -286,11 +287,35 @@ declare module "@emotion/react" {
 				iconSize: string
 			}
 		}
+		/**
+		 * Represents properties for different component states.
+		 */
 		componentStates: {
+			/**
+			 * Represents the opacity when a component is hovered.
+			 * @default "0.08"
+			 */
 			hoverOpacity: string
+			/**
+			 * Represents the opacity when a component is focused.
+			 * @default "0.12"
+			 */
 			focusOpacity: string
+			/**
+			 * Represents the opacity when a component is pressed.
+			 * @default "0.12"
+			 */
 			pressedOpacity: string
+			/**
+			 * Represents the opacity when a component is dragged.
+			 * @default "0.16"
+			 */
 			draggedOpacity: string
+			/**
+			 * Represents the opacity when a component is disabled.
+			 * @default "0.38"
+			 */
+			disabledOpacity: string
 		}
 	}
 }

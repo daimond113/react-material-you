@@ -196,7 +196,9 @@ export function FilledTextInput({
 			error={error}
 			css={(theme) => css`
 				cursor: ${props.disabled ? "default" : "text"};
-				opacity: ${props.disabled ? "0.38" : "1"};
+				opacity: ${props.disabled
+					? theme.componentStates.disabledOpacity
+					: "1"};
 				border: none;
 				border-top-left-radius: 4px;
 				border-top-right-radius: 4px;
@@ -263,7 +265,9 @@ export function OutlinedTextInput({
 			error={error}
 			css={(theme) => css`
 				cursor: ${props.disabled ? "default" : "text"};
-				opacity: ${props.disabled ? "0.38" : "1"};
+				opacity: ${props.disabled
+					? theme.componentStates.disabledOpacity
+					: "1"};
 
 				${props.disabled ? "" : "&:hover,"}
 				&:focus-within {

@@ -13,7 +13,8 @@ export const Radio = styled.input`
 	position: relative;
 	transition: box-shadow 0.1s;
 	background: transparent;
-	opacity: ${(props) => (props.disabled ? "0.38" : "1")};
+	opacity: ${(props) =>
+		props.disabled ? props.theme.componentStates.disabledOpacity : "1"};
 	--before-display: none;
 	--before-bg: ${(props) =>
 		hexFromArgb(props.theme.schemes[props.theme.mode].onSurfaceVariant)};

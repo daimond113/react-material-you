@@ -21,7 +21,7 @@ const BaseButton = styled.button<ButtonProps>`
 			const [r, g, b] = rgbFromArgb(
 				props.theme.schemes[props.theme.mode].onSurface
 			)
-			return `rgba(${r}, ${g}, ${b}, 0.38)`
+			return `rgba(${r}, ${g}, ${b}, ${props.theme.componentStates.disabledOpacity})`
 		}};
 	}
 

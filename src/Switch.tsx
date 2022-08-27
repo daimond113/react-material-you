@@ -62,7 +62,7 @@ export function Switch({ icon, ...props }: SwitchProps) {
 				}
 
 				input:not(:checked):disabled + .handle {
-					opacity: 0.38;
+					opacity: ${theme.componentStates.disabledOpacity};
 					background-color: ${hexFromArgb(theme.schemes[theme.mode].onSurface)};
 					color: ${hexFromArgb(theme.schemes[theme.mode].surfaceVariant)};
 				}
