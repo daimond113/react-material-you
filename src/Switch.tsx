@@ -6,7 +6,7 @@ import {
 	useRef,
 } from "react"
 import { Icon } from "./Icon"
-import { hexFromArgb } from "./main"
+import { hexFromArgb, rgbFromArgb } from "./utils/colors"
 
 interface SwitchProps
 	extends DetailedHTMLProps<
@@ -144,7 +144,11 @@ export function Switch({ icon, ...props }: SwitchProps) {
 					z-index: 10;
 					cursor: var(--cursor);
 
-					box-shadow: 0 0 0 var(--shadow-width) rgba(28, 27, 31, 0.08);
+					box-shadow: 0 0 0 var(--shadow-width)
+						${(() => {
+							const [r, g, b] = rgbFromArgb(theme.schemes[theme.mode].primary)
+							return `rgba(${r}, ${g}, ${b}, ${theme.componentStates.hoverOpacity})`
+						})()};
 
 					--checkmark-display: none;
 					--x-display: block;
