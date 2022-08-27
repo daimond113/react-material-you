@@ -103,4 +103,5 @@ export const rgbFromArgb = (
 	return [r, g, b]
 }
 
-export const overlapTwoColors = (colorOne: string, colorTwo: string) => `linear-gradient(0deg, ${colorOne}, ${colorOne}), ${colorTwo}`
+export const overlapTwoColors = (colorOne: string, colorTwo: string) =>
+	`linear-gradient(0deg, ${colorOne}, ${colorOne}), ${colorTwo}`

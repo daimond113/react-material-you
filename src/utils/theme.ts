@@ -175,7 +175,7 @@ export const defaultTheme: Theme = {
 	},
 }
 
-type TypeScaleItemValue = {
+interface TypeScaleItemValue {
 	/**
 	 * The line height of the text.
 	 */
@@ -194,13 +194,13 @@ type TypeScaleItemValue = {
 	weight: number
 }
 
-type TypeScaleItem = {
+interface TypeScaleItem {
 	large: TypeScaleItemValue
 	medium: TypeScaleItemValue
 	small: TypeScaleItemValue
 }
 
-type ElevationItemValue = {
+interface ElevationItemValue {
 	alpha: number
 	shadow: (mode: "light" | "dark") => string
 }

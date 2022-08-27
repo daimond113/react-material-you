@@ -18,7 +18,7 @@ interface SwitchProps
 
 export function Switch({ icon, ...props }: SwitchProps) {
 	const handleRef = useRef<HTMLSpanElement>(null)
-	let oldShadow = useRef<string | null>(null)
+	const oldShadow = useRef<string | null>(null)
 
 	useEffect(() => {
 		if (!handleRef.current) return

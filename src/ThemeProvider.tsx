@@ -80,6 +80,7 @@ export function ThemeProvider({
 				`}
 				aria-hidden
 				crossOrigin="anonymous"
+				alt=""
 			/>
 			{children}
 		</EmotionThemeProvider>

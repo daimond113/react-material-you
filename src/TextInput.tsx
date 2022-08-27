@@ -72,6 +72,7 @@ const BaseTextInput = ({
 	leadingIcon,
 	trailingIcon,
 	label,
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	supportingText,
 	prefix,
 	suffix,
@@ -116,7 +117,7 @@ const BaseTextInput = ({
 					caret-color: ${hexFromArgb(theme.schemes[theme.mode].primary)};
 					border: none;
 					background-color: transparent;
-					text-align: ${!!suffix ? "right" : "left"};
+					text-align: ${suffix ? "right" : "left"};
 
 					&:focus {
 						outline: none;

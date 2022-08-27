@@ -52,7 +52,7 @@ function BaseFAB({ color = "surface", lowered, ...props }: BaseFABProps) {
 		setRippleColor(
 			`rgba(${r}, ${g}, ${b}, ${theme.componentStates.pressedOpacity})`
 		)
-	}, [theme])
+	}, [theme, textColor])
 
 	return (
 		<button

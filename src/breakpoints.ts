@@ -4,7 +4,7 @@ import { useMedia } from "react-use"
 const useBreakpointMedia = (breakpoint: string) =>
 	useMedia(`(min-width: ${breakpoint})`, false)
 
-const breakpointToNumber: Record<keyof Theme['breakpoints'], number> = {
+const breakpointToNumber: Record<keyof Theme["breakpoints"], number> = {
 	extraSmall: 0,
 	small: 1,
 	medium1: 2,
@@ -22,21 +22,23 @@ export function useBreakpoint(): keyof Theme["breakpoints"] {
 	const isMedium2 = useBreakpointMedia(theme.breakpoints.medium2)
 	const isLarge = useBreakpointMedia(theme.breakpoints.large)
 
-	return isSmall
-		? "small"
-		: isMedium1
-		? "medium1"
+	return isLarge
+		? "large"
 		: isMedium2
 		? "medium2"
-		: isLarge
-		? "large"
+		: isMedium1
+		? "medium1"
+		: isSmall
+		? "small"
 		: "extraSmall"
 }
 
 /**
  * Returns if the screen is at least at the given breakpoint.
  */
-export function useIsBreakpoint(breakpoint: keyof Theme["breakpoints"]): boolean {
+export function useIsBreakpoint(
+	breakpoint: keyof Theme["breakpoints"]
+): boolean {
 	const breakpointHook = useBreakpoint()
 	const numBreakpointHook = breakpointToNumber[breakpointHook]
 	const numBreakpoint = breakpointToNumber[breakpoint]

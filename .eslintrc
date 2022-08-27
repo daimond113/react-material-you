@@ -1,0 +1,55 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "browser": true
+    },
+    "ignorePatterns": [
+        "src/stories/**/*"
+    ],
+    "settings": {
+        "polyfills": [
+            "Promise"
+        ]
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "@emotion",
+        "prettier",
+        "compat",
+        "jsx-a11y",
+        "react",
+        "react-hooks",
+        "react-prefer-function-component"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
+        "plugin:react-prefer-function-component/recommended",
+        "plugin:compat/recommended",
+        "plugin:jsx-a11y/recommended",
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "arrow-body-style": "off",
+        "prefer-arrow-callback": "off",
+        "@emotion/syntax-preference": [
+            2,
+            "string"
+        ],
+        "@typescript-eslint/array-type": "warn",
+        "@typescript-eslint/consistent-indexed-object-style": "warn",
+        "@typescript-eslint/consistent-type-definitions": "warn",
+        "@typescript-eslint/no-empty-interface": "error",
+        "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+        "react/hook-use-state": "error",
+        "react/void-dom-elements-no-children": "error",
+        "react/jsx-boolean-value": [
+            "error",
+            "never"
+        ]
+    }
+}
