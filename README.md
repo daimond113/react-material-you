@@ -1,5 +1,8 @@
 # react-material-you
 
+## DEPRECATION NOTICE
+This project has been moved to the [material-u](https://github.com/daimond113/material-u) repo.
+
 Since Google doesn't wanna do it, I will.
 
 This is an implementation of Google's [Material You](https://m3.material.io) also known as Material Design 3.
